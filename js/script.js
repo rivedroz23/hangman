@@ -1,14 +1,14 @@
 // Global variable declarations
 //Initial words array
-var words = ["word1dddddddddddddd", "word2", "word3", "word4", "tacos"]; 
+var words = ["ga", "friend", "winter", "crash", "tacos"]; 
 
 //Variable to hold random word selection for each new game
 var word = words[Math.floor(Math.random()*words.length)]; 
 console.log(word); 
 
-//Instantiate new variable to keep track of incorrect guesses. 
-//Shoudl try to get our incorrect variable to work when instantiated with 0 initially... 
-var incorrect = 1; 
+//Create new variable to keep track of incorrect guesses. 
+var incorrect = 0; 
+var correct = 0; 
 
 //Function that allows users to reset the gameboard. 
 function resetGame(){
@@ -16,19 +16,17 @@ function resetGame(){
 
 } 
 
-
-
-// Need to handle capitalization 
 //Need to handle setting correct letter for every place in the word that it appears. Right now includes only getIndex just finds the first place and returns.
 function checkUserGuess() {
-    var form, guess;  
-    guess = form.elements["guess"].value; 
+    var form, guess; 
+    form=document.getElementById("form"); 
+    guess=form.elements["guess"].value; 
     //check to see if users letter is contained in our random word. The value of w is true or false
     var w = word.includes(guess);
     if (w === true) {
         getIndex(guess);
     }  else {
-        //This code keeps track of the numbert of incorrect guesses and then updates the hangman image in our html page
+        //This code keeps track of the number of incorrect guesses and then updates the hangman image in our html page
         ++incorrect; 
     if (incorrect > 7) {
         alert("You're already dead");
@@ -36,7 +34,6 @@ function checkUserGuess() {
     }
     else {
 
-    
         const myHangman = document.getElementById("game-board");
         const oldHangman = myHangman.children[0];
      
@@ -75,7 +72,7 @@ function getIndex(guess) {
    // console.log(indexPosition); 
     setCorrectLetter(guess, indexPosition);
 }
-
+//This function allows us to set the correct letter, then call checkForWinner
 function setCorrectLetter(guess, indexPosition) {
    const myList = document.getElementById("holder3");
    const guessItem = myList.children[indexPosition];
@@ -84,8 +81,20 @@ function setCorrectLetter(guess, indexPosition) {
    newListItem.textContent = guess;
 
    myList.replaceChild(newListItem, guessItem); 
- 
+   checkForWinner();
 
+}
+
+function checkForWinner() {
+    ++correct;
+    console.log(correct);
+    if (correct === word.length) {
+        alert("Congrats!");
+        document.getElementById("guess").setAttribute("readonly", true); 
+    } else if (correct > word.length) {
+        alert("You already won, play again"); 
+        resetGame(); 
+    }
 }
 
 createGameBoard();

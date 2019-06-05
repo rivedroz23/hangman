@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+    <h1>Hangman Game</h1>
+    <link href ="css/style.css" rel = "stylesheet">
+</head>
+<body>
+    <form id="form">
+    <div>
+        Guess a letter...
+    </div> <input id="guess" type="text" name="guess" maxlength="1" size="1"></input> 
+    </form>
+    <div id="game-controls" align="center">
+    <button id="game-controls" class="game-controls" onclick="checkUserGuess()">Submit</button>
+    <button type="button" class="game-controls" onclick="resetGame()">Reset Game</button></div>
+    <div id="letterplaceholder2">
+        <ul id="holder3"></ul>
+    </div>
+    <div id="game-board"></div>
+    <header></header>
+    <main></main>
+    <footer>
+        Copyright 2019 River Droz
+        <script src ="js/script.js"></script>
+    </footer>
+</body>
+</html>

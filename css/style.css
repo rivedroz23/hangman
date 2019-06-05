@@ -1,0 +1,53 @@
+
+$orange: #ffa600;
+$green: #c1d72e;
+$blue: #82d2e5;
+$grey:#f3f3f3;
+$white: #fff;
+$base-color:$green;
+
+header, main, footer {
+    width: 70%;
+    height: 200px;
+    border: 1px dashed hotpink ;
+    margin: 1em auto; 
+}
+
+body {
+    background: green; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  color: white;
+  height:100%;
+  text-align:center;
+  font-size:28px;
+}
+#holder3 {
+    margin: 0;
+    display: block;
+    padding: 0;
+    display:block;
+  }
+  
+  #holder3 li {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    display: inline-block;
+    padding: 0 10px;
+    font-size:1.6em;
+  }
+  .game-controls {
+	background-color: #0D2C40;
+	color: #FFFFFF;
+	padding: 15px 15px 15px 15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+}
+input[type=text], select, textarea {
+    padding: 12px 12px 12px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
